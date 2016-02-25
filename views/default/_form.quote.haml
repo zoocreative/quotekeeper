@@ -1,0 +1,6 @@
+!=$view->render('//site/_form.errors.haml',compact('model'))
+
+!=$form->field($model,'title')->textInput()
+!=$form->field($model,'content')->textarea()
+%button.button.expanded.save{:type=>"submit"}
+	=Yii::t('interface','Save')

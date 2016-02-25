@@ -1,0 +1,49 @@
+-use yii\helpers\Html
+
+.medium-6.column
+	%h3.list-header 
+		=Yii::t('interface','Current Testimonials')
+	:php
+		echo yii\grid\GridView::widget([
+		    'dataProvider' => $quotes,
+		    'options' => ['class'=>'item-list'],
+		    'columns' => [
+		        'title',
+				[
+					'class' => 'yii\grid\ActionColumn',
+					'contentOptions' => ['class'=>'actions'],
+					'template' => '{update} {delete}',
+					'buttons' => [
+						'update' => function($url, $model, $key) {
+							$inner = Html::tag('span','<i class="fa fa-pencil"></i>');
+							return Html::a(
+								'<i class="fa fa-pencil"></i>',
+								['quotes/'.$model->id],
+								[
+									'data-pjax'=>'0',
+									'data-method'=>'patch',
+								]
+							);
+						},
+						'delete' => function($url, $model, $key) {
+							return Html::a(
+								'<i class="fa fa-trash"></i>',
+								['quotes/'.$model->id],
+								[
+									'data-pjax'=>'0',
+									'data-method'=>'delete',
+									'data-confirm'=>Yii::t('interface','Are you sure you want to remove this item?'),
+									'aria-label'=>'Delete',
+									'title'=>'Delete'
+								]
+							);
+						}
+					],
+				],
+		    ],
+		])
+	:php
+		echo Html::a(
+			Yii::t('interface','Add New Testimonial'),
+			['/quotes'],
+			['data-method' => 'post','class'=>'button expanded create']);

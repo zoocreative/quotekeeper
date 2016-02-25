@@ -1,0 +1,15 @@
+-use yii\widgets\ActiveForm
+-use yii\grid\GridView
+-use yii\helpers\Html;
+
+-$view->title = $pageTitle
+
+%h1.pageTitle
+	=Yii::t('interface','Testimonials')
+
+!=$view->render('_list.quote.haml',compact('quotes'))
+
+.medium-6.column
+	-$form = ActiveForm::begin()
+	!=$view->render('_form.quote.haml',compact('form','model'))
+	-ActiveForm::end()
