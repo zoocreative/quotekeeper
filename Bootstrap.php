@@ -10,21 +10,15 @@ use yii\web\GroupUrlRule;
 
 class Bootstrap implements BootstrapInterface
 {
+    /** @inheritdoc */
     public function bootstrap($app)
     {
+        /** @var Module $module */
+        /** @var \yii\db\ActiveRecord $modelName */
         if ($app->hasModule('quotes') && ($module = $app->getModule('quotes')) instanceof Module) {
 
-            $configUrlRule = [
-                'prefix' => $module->urlPrefix,
-                'rules'  => $module->urlRules,
-            ];
-
-            if ($module->urlPrefix != 'quotes') {
-                $configUrlRule['routePrefix'] = 'quotes';
-            }
-
-            $app->urlManager->addRules([new GroupUrlRule($configUrlRule)], false);
-
+            $app->urlManager->addRules($module->urlRules, false);
+            
         }
     }
 }

@@ -4,19 +4,15 @@ namespace mightyzoo\quotekeeper;
 class Module extends \yii\base\Module
 {
 
-    /** @var array Model map */
+     /** @var array Model map */
     public $modelMap = [];
-
-    /**
-     * @var string The prefix for user module URL.
-     *
-     * @See [[GroupUrlRule::prefix]]
-     */
-    public $urlPrefix = 'products';
 
     /** @var array The rules to be used in URL management. */
     public $urlRules = [
-        'toast' => 'default/toast',
+        'GET quotes' => 'quotes/default/index',
+        'POST quotes' => 'quotes/default/create',
+        'PATCH,PUT quotes/<id>' => 'quotes/default/update',
+        'DELETE quotes/<id>' => 'quotes/default/delete',
     ];
 
     public function init()

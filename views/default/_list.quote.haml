@@ -18,7 +18,7 @@
 							$inner = Html::tag('span','<i class="fa fa-pencil"></i>');
 							return Html::a(
 								'<i class="fa fa-pencil"></i>',
-								['quotes/'.$model->id],
+								['/quotes/'.$model->id],
 								[
 									'data-pjax'=>'0',
 									'data-method'=>'patch',
@@ -28,7 +28,7 @@
 						'delete' => function($url, $model, $key) {
 							return Html::a(
 								'<i class="fa fa-trash"></i>',
-								['quotes/'.$model->id],
+								['/quotes/'.$model->id],
 								[
 									'data-pjax'=>'0',
 									'data-method'=>'delete',
