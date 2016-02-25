@@ -9,7 +9,7 @@ use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
-class DefaultController extends ZController
+class QuoteController extends ZController
 {
 
     public $layout = '//inner.haml';

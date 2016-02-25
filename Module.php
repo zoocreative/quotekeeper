@@ -9,10 +9,10 @@ class Module extends \yii\base\Module
 
     /** @var array The rules to be used in URL management. */
     public $urlRules = [
-        'GET quotes' => 'quotes/default/index',
-        'POST quotes' => 'quotes/default/create',
-        'PATCH,PUT quotes/<id>' => 'quotes/default/update',
-        'DELETE quotes/<id>' => 'quotes/default/delete',
+        'GET quotes' => 'quotes/quote/index',
+        'POST quotes' => 'quotes/quote/create',
+        'PATCH,PUT quotes/<id>' => 'quotes/quote/update',
+        'DELETE quotes/<id>' => 'quotes/quote/delete',
     ];
 
     public function init()
